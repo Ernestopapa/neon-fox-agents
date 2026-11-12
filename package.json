@@ -1,0 +1,24 @@
+{
+  "name": "agent-mint-launch",
+  "version": "1.0.0",
+  "description": "Neon Fox Agents (NFOX) — Binance Agent ID NFT mint: 3333 total, first 1000 free for Agent ID holders (1/wallet), then 0.00007 BNB (~$0.05) each.",
+  "main": "index.js",
+  "scripts": {
+    "compile": "node scripts/compile.mjs",
+    "test:local": "node scripts/local-test.mjs",
+    "deploy:testnet": "node scripts/deploy-testnet.js",
+    "deploy:testnet-estimate": "node scripts/deploy-testnet.js --estimate"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.6.1",
+    "ethers": "^6.17.0",
+    "solc": "^0.8.26"
+  },
+  "devDependencies": {
+    "ganache": "^7.9.2"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "submitStatus": 202,
+  "submitBody": {
+    "verificationId": "a69bb3ac-4b33-4ca9-a49c-acb17865ce61"
+  },
+  "lastPoll": {
+    "isJobCompleted": true,
+    "verificationId": "a69bb3ac-4b33-4ca9-a49c-acb17865ce61",
+    "jobStartTime": "2026-11-01T20:40:14Z",
+    "jobFinishTime": "2026-11-01T20:40:16Z",
+    "compilationTime": "1831",
+    "externalVerifications": {
+      "etherscan": {
+        "error": "Daily limit of 500 source code submissions reached"
+      }
+    },
+    "contract": {
+      "match": "exact_match",
+      "creationMatch": "exact_match",
+      "runtimeMatch": "exact_match",
+      "chainId": "97",
+      "address": "0xBEeBd32ffFEDC1F2b17c9B07795e2C9B5559bA22",
+      "verifiedAt": "2026-11-01T20:40:16Z",
+      "matchId": "58000843"
+    }
+  }
+}

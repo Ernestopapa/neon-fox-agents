@@ -1,0 +1,179 @@
+{
+  "network": "anvil-local (dry run)",
+  "startedAt": "2026-11-01T20:38:08.417Z",
+  "tests": [
+    {
+      "name": "mock registry deploys",
+      "ok": true,
+      "detail": "gas 308419"
+    },
+    {
+      "name": "NeonFoxAgents deploys",
+      "ok": true,
+      "detail": "gas 1854637 (local addr 0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512)"
+    },
+    {
+      "name": "name/symbol",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "constants",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "totalSupply starts 0",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "freeOpen true at start",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "paidOpen false at start",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "non-agent freeMint reverts",
+      "ok": true,
+      "detail": "execution reverted: \"no Agent ID\""
+    },
+    {
+      "name": "paid mint blocked during free phase",
+      "ok": true,
+      "detail": "execution reverted: \"paid mint not open yet\""
+    },
+    {
+      "name": "agent freeMint succeeds",
+      "ok": true,
+      "detail": "token #1, gas 127754"
+    },
+    {
+      "name": "freeMinted mapping set",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "freeMintedCount = 1",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "tokenURI uses baseURI",
+      "ok": true,
+      "detail": "baseURI empty on fresh deploy; set via setBaseURI before launch"
+    },
+    {
+      "name": "royaltyInfo 5% to owner",
+      "ok": true,
+      "detail": "receiver 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266, amount 0.05 BNB on 1 BNB sale"
+    },
+    {
+      "name": "supportsInterface ERC2981",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "double freeMint reverts",
+      "ok": true,
+      "detail": "transaction execution reverted"
+    },
+    {
+      "name": "free supply exhausted (1000/1000)",
+      "ok": true,
+      "detail": "took 38s"
+    },
+    {
+      "name": "freeOpen false after exhaustion",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "paidOpen true after exhaustion",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "non-agent paid mint reverts",
+      "ok": true,
+      "detail": "execution reverted: \"no Agent ID\""
+    },
+    {
+      "name": "paid mint x2 at 0.00014 BNB succeeds",
+      "ok": true,
+      "detail": "gas 117994"
+    },
+    {
+      "name": "paidMinted = 2",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "wrong-price paid mint reverts",
+      "ok": true,
+      "detail": "execution reverted: \"wrong price\""
+    },
+    {
+      "name": "qty 6 reverts",
+      "ok": true,
+      "detail": "execution reverted: \"qty 1..5\""
+    },
+    {
+      "name": "contract holds paid BNB",
+      "ok": true,
+      "detail": "0.00014 BNB"
+    },
+    {
+      "name": "withdraw tx succeeds",
+      "ok": true,
+      "detail": "gas 32137"
+    },
+    {
+      "name": "owner withdraw empties contract",
+      "ok": true,
+      "detail": "0.0 BNB left"
+    }
+  ],
+  "deployment": {
+    "mockAddress": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+    "mockDeployGas": "308419",
+    "neonFoxAgentsAddress": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+    "neonDeployGas": "1854637"
+  },
+  "freeMint": {
+    "tx": "0x45000544c74ebc3a979cd88d93494be3bf3ef01c1b99f37e24f03c9bd96b8d91",
+    "gas": "127754"
+  },
+  "royalty": {
+    "receiver": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+    "amountWei": "50000000000000000",
+    "salePriceWei": "1000000000000000000"
+  },
+  "paidMint": {
+    "tx": "0x02d3abe2f90090ee1aa809119e9245b547eea5aaacb16a7e70038774d5b34f68",
+    "gas": "117994",
+    "qty": 2
+  },
+  "withdraw": {
+    "tx": "0x05a971371432f4d0ae1e7861583cbffbc48bfd54db505acf37620eee089649e6",
+    "gas": "32137",
+    "balanceAfter": "0"
+  },
+  "mainnetCostEstimate": {
+    "gasPriceAssumption": "0.05 gwei",
+    "bnbPriceAssumptionUsd": 710.4,
+    "neonDeployGas": "1854637",
+    "neonDeployBnb": "0.00009273185",
+    "neonDeployUsd": "0.0659",
+    "freeMintGas": "127754",
+    "freeMintBnb": "0.0000063877",
+    "freeMintUsd": "0.0045",
+    "note": "Mock is testnet-only; mainnet uses the real registry, so mainnet deployment = NeonFoxAgents deploy only (+ setBaseURI tx)."
+  },
+  "finishedAt": "2026-11-01T20:38:47.442Z",
+  "allPassed": true
+}

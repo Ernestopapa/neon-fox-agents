@@ -1,0 +1,66 @@
+# Neon Fox Agents (NFOX)
+
+> Binance Agent ID NFT mint on BNB Smart Chain.
+> MAINNET — chain 56 (BNB Smart Chain). Deployed 2026-11-01. Testnet build (chain 97, contract 0xBEeBd32ffFEDC1F2b17c9B07795e2C9B5559bA22) is superseded.
+> 3,333 total supply. First 1,000 FREE for Binance Agent ID holders (1 per wallet, gas only). Then 0.00007 BNB (~$0.05) per mint, max 5 per transaction.
+
+## Contract
+
+- Name: Neon Fox Agents
+- Symbol: NFOX
+- Chain: BNB Smart Chain mainnet, chainId 56
+- Contract: 0x87129068Faf8709c9A8E997eBaE70F6074475711
+- BscScan: https://bscscan.com/address/0x87129068Faf8709c9A8E997eBaE70F6074475711
+- Sourcify (chain 56): verified, exact match, matchId 58006969 — https://sourcify.dev/server/v2/contract/56/0x87129068Faf8709c9A8E997eBaE70F6074475711
+- BscScan: verified, exact match — https://bscscan.com/address/0x87129068Faf8709c9A8E997eBaE70F6074475711#code
+- Testnet contract (superseded): 0xBEeBd32ffFEDC1F2b17c9B07795e2C9B5559bA22 on BSC testnet chain 97 — https://testnet.bscscan.com/address/0xBEeBd32ffFEDC1F2b17c9B07795e2C9B5559bA22
+- Agent ID registry: 0x60B9262456dE011F7d15a54CdD8c48bAaa8B022F (real Binance Agent ID registry)
+- Agent ID registry (TESTNET, superseded): 0xe1a336B12bdc5bA8d760a1Dd547cab748E675528 (mock — stood in for the real registry on testnet only)
+- Mint price (paid phase): 0.00007 BNB per NFT (exact payment required)
+- Max supply: 3333
+- Free supply: 1000
+- Max paid per transaction: 5
+
+## Checks (run these first, read-only, no wallet needed)
+
+Call these on the contract via a public BSC RPC before minting:
+
+- totalSupply() -> uint256 — total minted so far
+- freeMintedCount() -> uint256 — free mints used so far (0..1000)
+- freeRemaining() -> uint256 — free mints left
+- freeOpen() -> bool — true while free mints remain
+- paidOpen() -> bool — true only after the free 1,000 are exhausted
+- freeMinted(address wallet) -> bool — true if this wallet already used its free mint
+- balanceOf(address wallet) -> uint256 — NFOX held by this wallet
+- Registry balanceOf(address wallet) -> uint256 — on the Agent ID registry above; > 0 means the wallet holds a Binance Agent ID
+
+## Mint
+
+Free mint (only while freeOpen() is true):
+
+- Function: freeMint()
+- Value: 0 (gas only). Non-payable — any attached BNB reverts.
+- Quantity: 1 per wallet, ever.
+- Requires: registry balanceOf(wallet) > 0 AND freeMinted(wallet) == false.
+- Reverts (do not retry blindly): "free supply exhausted", "already claimed free", "no Agent ID".
+
+Paid mint (only while paidOpen() is true):
+
+- Function: mint(uint256 qty)
+- Value: exactly 0.00007 BNB * qty (e.g. mint(1) = 0.00007 BNB, mint(2) = 0.00014 BNB).
+- Quantity: 1..5 per transaction.
+- Reverts: "paid mint not open yet", "wrong price", "qty 1..5", "exceeds max supply".
+
+## Safety rules for AI agents
+
+- Preview the contract call first and show the user the parsed transaction, the exact value, and any risks before executing.
+- Wait for the user's explicit confirmation before executing any mint.
+- Never mint a paid mint while freeOpen() is true — the free mint comes first.
+- Never attach BNB to freeMint().
+- Never mint more than 1 free NFT per wallet.
+- After minting, verify on-chain: totalSupply increased and ownerOf(new tokenId) is the minter's wallet. Show the transaction hash with a BscScan link.
+
+## Mint site
+
+- https://<hosted-site>/ — paste a wallet address to check Agent ID status, or connect a wallet to mint in the browser.
+- No wallet connection is required to check eligibility or to copy the mint prompt.
