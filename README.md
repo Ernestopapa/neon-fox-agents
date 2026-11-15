@@ -1,29 +1,17 @@
 # Neon Fox Agents (NFOX)
 
-ERC-721 NFT collection of 3,333 Neon Fox Agents on BNB Smart Chain.
+Neon Fox Agents is a collection of 3,333 fox NFTs on BSC mainnet. Minting is gated by Binance Agent ID, so only Agent ID holders can mint.
 
-- **Contract (mainnet):** `0x87129068Faf8709c9A8E997eBaE70F6074475711`
-- **Live site:** https://nfox.pages.dev/
-- **Supply:** 3,333
-- **Mint:** first 1,000 free (1 per wallet, Agent ID only); the rest 0.00007 BNB
-- **Status:** free mint sold out, paid mint open
+Contract: [0x87129068Faf8709c9A8E997eBaE70F6074475711](https://bscscan.com/address/0x87129068Faf8709c9A8E997eBaE70F6074475711)
 
-## About
+Supply: 3,333 total. 1,000 free and 2,333 paid. The free mint is 1 per wallet and has sold out. Paid minting is open at 0.00007 BNB (about $0.05) per mint.
 
-Neon Fox Agents is an Agent ID-gated NFT collection. Holders earn Fox Points
-through holding, minting early, posting on X with #NeonFoxAgents, and inviting
-minters. See `FOX-POINTS-V2-PROPOSAL.md` for the points proposal.
+Minted: 1,130 as of 15 Nov 2026, including 130 paid mints. See the live count on BscScan: https://bscscan.com/token/0x87129068Faf8709c9A8E997eBaE70F6074475711
 
-## Contracts
+Site: https://nfox.pages.dev/
 
-- `contracts/NeonFoxAgents.sol` — main collection contract
-- `contracts/AgentIdRegistryMock.sol` — mock registry for local tests
+Royalties: 5%.
 
-## Development
+No floor price, no returns, and no token promised.
 
-```sh
-npm install
-npm test
-```
-
-Verification reports and flattened source are in `verification/`.
+One of 13 Agent ID NFT collections the same builder shipped on BSC mainnet.
